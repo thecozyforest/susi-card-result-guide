@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="2027 수시 상담카드 발표결과판 — 처음 설치하는 학교와 9월판·그 전 판·11월 신버전을 쓰는 학교의 경우별 설치·업데이트 안내">
+<title>수시상담카드 발표결과판 안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* 레이아웃: 한 줄 기둥(최대 780px). 위쪽 '내 학교는 어느 경우?' 표에서 경우를 고르면 그 경우의 순서로 내려간다. 상담카드 앱의 크림슨을 그대로 쓴다. */
+:root{
+  --bg:#f6f4f5; --paper:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e6dfe1;
+  --brand:#9b1b30; --brand-soft:#fbeef1; --brand-line:#eec7ce;
+  --stop:#8a2a1a; --stop-bg:#fff1ec; --stop-line:#f3cdbf;
+  --ok:#11694f; --ok-bg:#e9f6f0; --ok-line:#c3e6d6;
+  --info-bg:#eef3fb; --info-line:#cfdcf0; --info:#23497a;
+  --code-bg:#f1eef0; --screen:#fbfafa;
+  --f-body:"Noto Sans KR","Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:ui-monospace,"Cascadia Mono",Consolas,"Noto Sans KR",monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17141a; --paper:#201c22; --ink:#ece8ea; --muted:#a59ea4; --line:#3a3239;
+  --brand:#e0677b; --brand-soft:#3a1d24; --brand-line:#5c2d38;
+  --stop:#f2a58e; --stop-bg:#3a221b; --stop-line:#5c3528;
+  --ok:#7fd3b0; --ok-bg:#16302a; --ok-line:#28503f;
+  --info-bg:#1b2533; --info-line:#2e4361; --info:#a9c6ee;
+  --code-bg:#2b252c; --screen:#262028; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17141a; --paper:#201c22; --ink:#ece8ea; --muted:#a59ea4; --line:#3a3239;
+  --brand:#e0677b; --brand-soft:#3a1d24; --brand-line:#5c2d38;
+  --stop:#f2a58e; --stop-bg:#3a221b; --stop-line:#5c3528;
+  --ok:#7fd3b0; --ok-bg:#16302a; --ok-line:#28503f;
+  --info-bg:#1b2533; --info-line:#2e4361; --info:#a9c6ee;
+  --code-bg:#2b252c; --screen:#262028; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.72;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font-size:clamp(24px,5vw,32px);line-height:1.3;margin:0;font-weight:900;letter-spacing:-.5px;text-wrap:balance}
+h2{font-size:19.5px;margin:0 0 10px;font-weight:900;color:var(--brand);text-wrap:balance;line-height:1.4}
+h3{font-size:16px;margin:0 0 4px;font-weight:700;text-wrap:balance}
+p{margin:0}
+p + p{margin-top:8px}
+a{color:var(--brand)}
+.kicker{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.04em}
+.lead{color:var(--muted);margin-top:8px}
+.pill{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-line)}
+section{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 20px 22px;scroll-margin-top:12px}
+ul{margin:6px 0 0;padding-left:20px} li{margin:3px 0}
+code,.path{font-family:var(--f-body);background:var(--code-bg);border-radius:5px;padding:1px 6px;font-size:.93em}
+code{font-family:var(--f-mono);font-size:.88em}
+.path{font-weight:700}
+.url{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.url input{flex:1 1 280px;min-width:0;font:13px var(--f-mono);padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--code-bg);color:var(--ink)}
+button.copy{font:inherit;font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:8px;border:1px solid var(--brand);background:var(--brand);color:#fff;cursor:pointer}
+button.copy:focus-visible{outline:3px solid var(--brand-line);outline-offset:2px}
+.copied{font-size:13px;color:var(--ok);font-weight:700;min-width:5em}
+.box{border-radius:12px;padding:13px 16px;border:1px solid;margin-top:12px}
+.box.stop{background:var(--stop-bg);border-color:var(--stop-line)}
+.box.stop strong{color:var(--stop)}
+.box.ok{background:var(--ok-bg);border-color:var(--ok-line)}
+.box.ok strong{color:var(--ok)}
+.box.info{background:var(--info-bg);border-color:var(--info-line)}
+.box.info strong{color:var(--info)}
+.note{font-size:13.5px;color:var(--muted);margin-top:4px}
+/* 교사 대시보드 맨 위를 흉내 낸 그림 */
+.screen{margin-top:12px;border:1px solid var(--line);border-radius:10px;background:var(--screen);padding:12px 14px;overflow-x:auto}
+.screen .t{font-weight:900;font-size:15px}
+.screen .t mark,.screen .s mark{background:var(--brand-soft);color:var(--brand);border-radius:4px;padding:0 3px}
+.screen .s{font-size:12.5px;color:var(--muted);margin-top:2px;white-space:nowrap}
+.screen-cap{font-size:12.5px;color:var(--muted);margin-top:6px}
+/* 경우 고르기 표 */
+.table-wrap{overflow-x:auto;margin-top:12px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-size:12.5px;font-weight:700;white-space:nowrap}
+td.case a{font-weight:900;text-decoration:none;white-space:nowrap}
+td.case a:hover,td.case a:focus-visible{text-decoration:underline}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.tag.same{background:var(--ok-bg);color:var(--ok)}
+.tag.new{background:var(--brand-soft);color:var(--brand)}
+.tag.none{background:var(--code-bg);color:var(--muted)}
+/* 순서 */
+ol.steps{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+ol.steps > li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;margin:0;counter-increment:s}
+ol.steps > li::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-weight:900;font-size:14px}
+ol.steps > li.zero{counter-increment:none}
+ol.steps > li.zero::before{content:"0";background:var(--stop)}
+ol.steps > li.plus::before{content:"+";background:var(--info)}
+ol.steps > li.plus{counter-increment:none}
+ol.steps > li > div{min-width:0}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px}
+.files div{border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13.5px}
+.files b{display:block;font-family:var(--f-mono);font-size:14px}
+.files .must{border-color:var(--brand-line);background:var(--brand-soft)}
+.files .rec{border-color:var(--info-line);background:var(--info-bg)}
+.legend{font-size:12.5px;color:var(--muted);margin-top:6px}
+.dont li{margin:6px 0}
+.dont b{color:var(--stop)}
+dl.faq{margin:4px 0 0;display:flex;flex-direction:column;gap:14px}
+dl.faq dt{font-weight:700;display:flex;gap:8px}
+dl.faq dt::before{content:"Q";color:var(--brand);font-weight:900;flex:0 0 auto}
+dl.faq dd{margin:4px 0 0 20px;color:var(--ink)}
+.faq-group{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.04em;margin-top:18px;padding-top:12px;border-top:1px solid var(--line)}
+.faq-group:first-of-type{margin-top:6px;border-top:0;padding-top:0}
+textarea{width:100%;min-height:200px;font:13.5px/1.6 var(--f-body);padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--code-bg);color:var(--ink);resize:vertical;box-sizing:border-box}
+.paste-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between;margin-bottom:8px}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px}
+nav.toc a{font-size:13px;font-weight:700;text-decoration:none;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+nav.toc a:hover,nav.toc a:focus-visible{border-color:var(--brand);color:var(--brand);outline:none}
+.checked{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:10px}
+.checked div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px}
+.checked b{display:block;font-size:20px;font-variant-numeric:tabular-nums;color:var(--ok)}
+footer{font-size:12.5px;color:var(--muted);text-align:center;line-height:1.7}
+@media (max-width:560px){section{padding:16px 15px 18px} body{font-size:15px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">2027 수시지원상담카드 V9.8 전문대 포함본 · 발표결과판 · 2026.11.13</div>
+    <h1>수시 상담카드 발표결과판 설치·업데이트 안내</h1>
+    <p class="lead">상담카드에 <b>수시 발표 결과</b> 화면이 더해졌습니다. 학생이 실제로 원서를 낸 대학과 결과를 입력하고, 담임이 확인하고 모아 봅니다. 쓰던 학교는 학생 자료·학생 주소·접속코드·교사 PIN을 그대로 둔 채 파일 몇 개만 바꿉니다.</p>
+    <span class="pill">최신 판 · 서버 v1.9.3 · 결과 화면 1.0.2</span>
+    <div class="box stop"><strong>쓰던 학교는 시작 전에 꼭 백업</strong> · 쓰던 스프레드시트에서 <span class="path">파일 → 사본 만들기</span>를 한 번 해 두세요(1분). 업데이트는 학생 자료를 지우지 않도록 만들고 시험했지만, 학교마다 시트를 손본 방식이 달라 모든 경우를 미리 볼 수는 없습니다. 백업이 있으면 무슨 일이 있어도 원래대로 돌아갈 수 있습니다. 학생 자료는 각 학교 Google 드라이브의 시트에만 저장되고, 이 앱을 만든 사람은 볼 수 없습니다.</div>
+  </header>
+
+  <nav class="toc" aria-label="차례">
+    <a href="#which">내 학교는 어느 경우?</a><a href="#caseA">A 처음</a><a href="#caseB">B 9월판</a><a href="#caseC">C 그 전 판</a><a href="#caseD">D 11월 신버전</a><a href="#check">끝난 뒤 확인</a><a href="#students">학생 안내문</a><a href="#faq">자주 묻는 질문</a><a href="#trouble">이럴 때는</a><a href="#tested">이렇게 확인했습니다</a>
+  </nav>
+
+  <section>
+    <h2>무엇이 생기나</h2>
+    <ul>
+      <li>학생이 <b>실제로 원서를 낸 곳</b>과 결과를 입력합니다. 상담카드에 적은 대학이 미리 불러와지고, 학생은 대학마다 <b>지원함 / 안 함</b>을 고릅니다. 막판에 바꿔 낸 대학은 직접 추가합니다.</li>
+      <li>결과는 <b>1차 합격 · 1차 불합격 · 2차 미응시 · 예비 · 추가 합격 · 최종 합격 · 최종 불합격</b>으로 나눠 적습니다. 1차 탈락, 1차 합격 후 면접 미응시, 면접 본 뒤 최종 탈락이 서로 구분됩니다.</li>
+      <li>담임이 <b>확인</b>한 결과는 잠겨서 학생이 더 고칠 수 없습니다. 입력하지 않는 학생은 담임이 대신 입력합니다. 누가 언제 무엇을 바꿨는지는 시트에 한 줄씩 남습니다.</li>
+      <li>예비 번호 · 다음 발표일 · 합격 차수(최초 합격, N차 추합, 전화 추합) · 비고를 적고, 추합 일정은 날짜순으로 모아 봅니다.</li>
+      <li>담임 화면에서 학생별·대학별로 모아 보고 CSV로 내려받습니다. 학생 입력은 선생님이 켜고 끌 수 있습니다.</li>
+    </ul>
+    <div class="box ok"><strong>그대로 남는 것</strong> · 학생 상담카드 주소 · 접속코드 · 학생이 쓴 상담카드 · 변경이력 · 교사 메모 · 교사 PIN. 결과는 상담카드와 따로 <code>발표결과</code> 시트에 저장되어 상담카드 내용은 바뀌지 않습니다.</div>
+  </section>
+
+  <section id="source">
+    <h2>원본 주소 (사본 만들기)</h2>
+    <p>처음 쓰는 학교도, 이미 쓰는 학교도 이 주소에서 시작합니다.</p>
+    <div class="url">
+      <input id="copyUrl" readonly value="https://docs.google.com/spreadsheets/d/1gHj_TIvtTVbZM0RolKkU_RyOG0ZCA_-oiHd9lYyo48U/copy" aria-label="원본 사본 만들기 주소">
+      <button class="copy" type="button" data-copy="copyUrl">주소 복사</button><span class="copied" aria-live="polite"></span>
+    </div>
+    <p class="note">주소를 열면 <b>사본 만들기</b> 단추가 나옵니다. 사본은 연 선생님의 Google 드라이브에 만들어지고, 학생 자료도 그 사본에만 저장됩니다. 원본 제작자나 다른 학교는 볼 수 없습니다.</p>
+  </section>
+
+  <section id="which">
+    <h2>내 학교는 어느 경우?</h2>
+    <p>지금 쓰고 있다면 <b>교사 대시보드</b>(학생 주소 끝에 <code>?page=teacher</code>)에 교사 PIN으로 들어가 <b>맨 위 제목</b>과 <b>그 아래 한 줄</b>을 봅니다.</p>
+    <div class="screen" aria-label="교사 대시보드 맨 위 예시">
+      <div class="t">2027 수시지원상담카드 <mark>V9.8</mark> 전문대 포함본 교사 대시보드</div>
+      <div class="s">마지막 갱신 2026. 11. 13. 오후 2:05 · 화면 V9.8 전문대 포함본 · <mark>서버 v1.8.0</mark>-v9_8-unistats-heal-0909</div>
+    </div>
+    <p class="screen-cap">↑ 이렇게 보이면 <b>B</b>입니다. 9월에 받은 판입니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>보이는 것</th><th>경우</th><th>할 일</th><th>시간</th><th>학생에게 다시 안내</th></tr></thead>
+        <tbody>
+          <tr><td>아직 상담카드를 쓰지 않음</td><td class="case"><a href="#caseA">A 처음 쓰는 학교</a></td><td>사본 만들기 → 설치</td><td>약 30분</td><td><span class="tag new">주소·접속코드 처음 배부</span></td></tr>
+          <tr><td>제목에 <b>V9.8</b>, 아래 줄이 <b>서버 v1.8.0</b> 또는 <b>v1.7.0</b><br><small>아래 줄에 서버 표기가 아예 없어도 제목에 V9.8이 있으면 여기</small></td><td class="case"><a href="#caseB">B 9월판을 쓰는 학교</a></td><td>파일 4개 바꾸기</td><td>약 10분</td><td><span class="tag same">결과 주소만 새로</span></td></tr>
+          <tr><td>제목에 <b>V9.8이 없음</b> (V9.7 이하)</td><td class="case"><a href="#caseC">C 그 전 판을 쓰는 학교</a></td><td>파일 5~6개 바꾸기 + 설치 1번</td><td>약 15분</td><td><span class="tag same">결과 주소만 새로</span></td></tr>
+          <tr><td>아래 줄이 <b>서버 v1.9.0</b> · <b>v1.9.1</b> · <b>v1.9.2</b></td><td class="case"><a href="#caseD">D 11월에 신버전을 받은 학교</a></td><td>코드·Result 다시 붙여넣기</td><td>약 5분</td><td><span class="tag none">없음</span></td></tr>
+          <tr><td>아래 줄이 <b>서버 v1.9.3</b></td><td class="case">최신 판</td><td>할 일 없음</td><td>—</td><td>—</td></tr>
+          <tr><td>발표 결과 기능은 쓰지 않을 예정</td><td class="case">E 그대로 쓰기</td><td>아무것도 하지 않아도 됩니다. 지금 상담카드는 그대로 돌아갑니다.</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box info"><strong>B·C·D 공통</strong> · 쓰던 스프레드시트를 그대로 두고 <b>파일 내용만</b> 바꿉니다. 새 사본으로 옮겨 가지 마세요. 새 사본을 쓰면 학생 주소가 바뀌고 학생 자료가 빈 채로 시작합니다.</div>
+  </section>
+
+  <section id="caseB">
+    <h2>B. 9월판(V9.8)을 쓰는 학교 — 약 10분</h2>
+    <p>9월에 받은 판(서버 v1.8.0 또는 v1.7.0)을 쓰는 학교입니다. 바꿀 파일은 넷입니다.</p>
+    <div class="files">
+      <div class="must"><b>코드</b>내용 바꾸기 · 필수</div>
+      <div class="must"><b>Result</b>새로 만들기 · 필수</div>
+      <div class="rec"><b>Teacher</b>내용 바꾸기 · 권장</div>
+      <div class="rec"><b>Manual</b>내용 바꾸기 · 권장</div>
+    </div>
+    <p class="legend"><code>Index</code>(학생 상담카드)와 <code>Calendar</code>는 그대로 둡니다. Teacher를 바꾸면 교사 대시보드에 🏁 발표 결과 단추가 생기고, Manual을 바꾸면 매뉴얼에 결과 화면 안내(6-4장)가 들어갑니다. 둘 다 그대로 두어도 결과 기능은 작동합니다.</p>
+    <ol class="steps">
+      <li class="zero"><div>
+        <h3>백업 먼저</h3>
+        <p>쓰던 스프레드시트에서 <span class="path">파일 → 사본 만들기</span>, 이름 끝에 <code>_백업</code>을 붙입니다. 이 사본은 열지도 고치지도 말고 그대로 두세요. 문제가 생기면 여기서 예전 코드를 가져와 되돌립니다(<a href="#rollback">되돌리기</a>).</p>
+      </div></li>
+      <li><div>
+        <h3>복사해 올 곳 만들기</h3>
+        <p>위의 <a href="#source">원본 주소</a>로 사본을 하나 더 만들고, 그 사본에서 <span class="path">확장 프로그램 → Apps Script</span>를 엽니다. 왼쪽 파일 목록에 <code>코드</code> · <code>Index</code> · <code>Teacher</code> · <code>Manual</code> · <code>Calendar</code> · <code>Result</code>가 보입니다.</p>
+        <p class="note">이 사본은 파일을 복사해 오는 곳일 뿐입니다. 여기서 설치(setupSystem)를 하거나 명단을 넣거나 배포하지 마세요. 다 옮긴 뒤 지워도 됩니다.</p>
+      </div></li>
+      <li><div>
+        <h3>코드 내용 바꾸기</h3>
+        <p><b>쓰던</b> 스프레드시트에서 <span class="path">확장 프로그램 → Apps Script</span>를 엽니다(탭이 두 개가 됩니다). 왼쪽의 원래 있던 <code>코드.gs</code>를 열고 <span class="path">Ctrl+A → Delete</span>로 비웁니다. 복사해 올 곳의 <code>코드</code>를 열어 <span class="path">Ctrl+A → Ctrl+C</span>, 쓰던 쪽에 <span class="path">Ctrl+V</span> → <span class="path">Ctrl+S</span>(저장).</p>
+        <p class="note">.gs 파일을 새로 추가하지 마세요. 원래 있던 파일의 <b>내용</b>을 바꿉니다. 파일 이름이 <code>Code.gs</code>여도 같습니다.</p>
+      </div></li>
+      <li><div>
+        <h3>Result 새로 만들기</h3>
+        <p>쓰던 쪽에서 파일 옆 <span class="path">＋ → HTML</span>, 이름을 <code>Result</code>(대문자 R, <code>.html</code>은 저절로 붙음)로 만듭니다. 안에 미리 들어 있는 기본 내용을 <span class="path">Ctrl+A → Delete</span>로 지우고, 복사해 올 곳의 <code>Result</code> 내용을 붙여넣고 저장합니다.</p>
+      </div></li>
+      <li><div>
+        <h3>Teacher · Manual 내용 바꾸기 (권장)</h3>
+        <p>3번과 같은 방법으로 <code>Teacher</code>와 <code>Manual</code>의 내용을 바꾸고 저장합니다. Teacher는 파일이 커서 붙여넣고 저장하는 데 몇 초 걸립니다.</p>
+      </div></li>
+      <li><div>
+        <h3>새 버전으로 배포</h3>
+        <p><span class="path">배포 → 배포 관리 → 연필(✏) → 버전: 새 버전 → 배포</span>. <b>‘새 배포’가 아닙니다.</b> 배포 관리에서 고쳐야 학생에게 준 주소가 그대로입니다.</p>
+        <p class="note">권한 승인 창은 뜨지 않습니다(새로 필요한 권한이 없습니다). <code>setupSystem</code>도 다시 하지 않아도 됩니다.</p>
+      </div></li>
+      <li><div>
+        <h3>확인하고 학생에게 결과 주소 안내</h3>
+        <p><a href="#check">끝난 뒤 확인</a>의 세 가지를 보고, <a href="#students">학생 안내문</a>과 함께 학생용 결과 주소를 보냅니다.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section id="caseC">
+    <h2>C. 그 전 판(V9.7 이하)을 쓰는 학교 — 약 15분</h2>
+    <p>교사 대시보드 제목에 <b>V9.8</b>이 없는 학교입니다. <a href="#caseB">B의 순서</a>를 그대로 하되, 바꿀 파일이 늘고 마지막에 설치를 한 번 더 합니다.</p>
+    <div class="files">
+      <div class="must"><b>코드</b>내용 바꾸기</div>
+      <div class="must"><b>Result</b>새로 만들기</div>
+      <div class="must"><b>Teacher</b>내용 바꾸기</div>
+      <div class="must"><b>Manual</b>내용 바꾸기</div>
+      <div class="must"><b>Index</b>내용 바꾸기</div>
+      <div class="rec"><b>Calendar</b>있으면 바꾸기 · 없으면 선택</div>
+    </div>
+    <ol class="steps">
+      <li class="plus"><div>
+        <h3>Index도 바꾸기</h3>
+        <p>B의 3~5번을 할 때 <code>Index</code>도 같은 방법으로 내용을 바꿉니다. 학생 상담카드 화면 파일이라 크기가 약 4MB입니다. 복사·붙여넣기·저장에 수십 초 걸릴 수 있으니 저장이 끝날 때까지 기다리세요. 예전 판은 Index와 Teacher가 한 세트라, 둘 중 하나만 바꾸면 교사 화면에서 전문대 지원 내용이 빠집니다.</p>
+      </div></li>
+      <li class="plus"><div>
+        <h3>Calendar (선택)</h3>
+        <p>전형일정 달력만 따로 링크로 주고 싶을 때만 <span class="path">＋ → HTML</span>, 이름 <code>Calendar</code>로 만들어 붙여넣습니다. 달력은 상담카드 안에 이미 들어 있어서 없어도 됩니다. 이미 있던 학교는 내용을 바꿉니다.</p>
+      </div></li>
+      <li class="plus"><div>
+        <h3>배포 뒤 설치 한 번</h3>
+        <p>B의 6번(새 버전 배포)까지 한 뒤, 스프레드시트를 새로고침하고 <span class="path">수시 상담카드 → 고급 · 문제가 생겼을 때 → 시스템 시트 다시 만들기 (setupSystem)</span>를 한 번 누릅니다. 예전 판에서 쓰던 시트 머리글을 지금 규격으로 맞춥니다. 학생 자료는 지워지지 않고, 완료 창은 뜨지 않습니다. 끝났는지는 <span class="path">✅ 지금 상태 점검하기</span>로 봅니다.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section id="caseD">
+    <h2>D. 11월에 이미 신버전을 받은 학교 — 약 5분</h2>
+    <p>11월 12~13일에 신버전을 받아 간 학교입니다. 교사 대시보드 제목 아래 <b>서버 v…</b>를 봅니다.</p>
+    <ul>
+      <li><b>서버 v1.9.0</b> — 꼭 바꿔 주세요. 여러 명이 동시에 저장하면 다른 학생의 결과가 지워질 수 있던 판입니다. <code>코드</code>와 <code>Result</code> 두 파일의 <b>내용</b>을 바꿉니다. Result는 새로 만들지 말고, 이미 있는 Result의 내용을 바꿉니다.</li>
+      <li><b>서버 v1.9.1 · v1.9.2</b> — <code>코드</code>와 <code>Result</code> 두 파일의 <b>내용</b>을 바꿉니다(Result는 새로 만들지 말고 이미 있는 것의 내용만). 고친 것은 다음과 같습니다. ① 스프레드시트와 Apps Script의 시간대가 서로 다르게 설정된 학교에서 ‘다음 발표일’이 하루 앞당겨 보일 수 있던 것(v1.9.1만 해당). ② 학교가 직접 만든 ‘발표결과’라는 이름의 시트가 이미 있을 때 그 시트에 덧붙여 쓰던 것(v1.9.1만 해당 — 이제는 손대지 않고 이름을 바꾸라고 안내합니다). ③ 그런 시트가 있는 학교에서 학년말에 메뉴 ‘학생 작성 자료 전체 초기화’를 누르면 그 시트 내용까지 비우던 것(v1.9.1·v1.9.2). ④ 결과 화면에서 로그아웃한 뒤에도 맨 위에 앞사람 이름이 남던 것(교실 공용 PC에서 다음 학생에게 보임 — Result). 대부분의 학교는 ①~③에 해당하지 않지만, 바꿔 두면 안전합니다.</li>
+    </ul>
+    <p style="margin-top:8px">순서는 <a href="#caseB">B</a>의 0~3번(필요하면 4번)과 6번입니다. 이미 입력된 결과와 상담카드는 그대로 둔 채 바뀝니다.</p>
+  </section>
+
+  <section id="caseA">
+    <h2>A. 처음 쓰는 학교 — 약 30분</h2>
+    <p>상담카드와 발표 결과가 함께 들어 있는 판 하나만 설치하면 됩니다. 예전 판을 먼저 깔 필요가 없습니다.</p>
+    <ol class="steps">
+      <li><div><h3>사본 만들기</h3><p><a href="#source">원본 주소</a> → <b>사본 만들기</b>. 이 사본이 우리 학교 것입니다. 이름은 알아보기 쉽게 바꿔도 됩니다.</p></div></li>
+      <li><div><h3>설치(setupSystem) 한 번 + 권한 승인</h3><p>사본에서 <span class="path">확장 프로그램 → Apps Script</span> → 위쪽 함수 목록에서 <code>setupSystem</code> → <span class="path">실행</span>. 권한 창이 뜨면 <span class="path">권한 검토 → 계정 선택 → 고급 → (안전하지 않은 페이지로) 이동 → 허용</span>. 직접 만든 사본이라 뜨는 확인 절차입니다. 완료 창은 뜨지 않습니다. 스프레드시트를 새로고침하면 위쪽에 <b>수시 상담카드</b> 메뉴가 생깁니다.</p></div></li>
+      <li><div><h3>학생 명단 → ① 학생명단 정리 + 접속코드 만들기</h3><p><code>학생명단</code> 시트에 반·번호·이름을 넣고 메뉴 ①을 누릅니다. 접속코드가 학생마다 만들어집니다.</p></div></li>
+      <li><div><h3>② 교사 PIN 바꾸기</h3><p>처음 PIN은 모두 같으므로 바로 바꿉니다. 이 PIN으로 교사 대시보드와 교사용 결과 화면에 들어갑니다.</p></div></li>
+      <li><div><h3>③ 웹앱 배포 → 🔗 배포 주소 등록</h3><p>Apps Script에서 <span class="path">배포 → 새 배포 → ⚙ 웹 앱</span>, <b>다음 사용자로 실행: 나</b>, <b>액세스 권한: 모든 사용자</b> → 배포 → <code>/exec</code>로 끝나는 주소를 복사합니다. 스프레드시트로 돌아와 <span class="path">🔗 배포 주소 등록 (배포 직후 1회)</span>에 붙여넣습니다.</p><p class="note">처음 배포할 때만 ‘새 배포’입니다. 그 뒤에 파일을 고치면 B의 6번처럼 배포 관리에서 새 버전으로 바꿉니다.</p></div></li>
+      <li><div><h3>④ 학생 접속코드 안내표 → 학생에게 전달</h3><p><code>학생접속코드_안내</code> 시트가 만들어집니다. 접속코드는 개인정보라 반별로 나눠 개별로 전달합니다.</p></div></li>
+      <li><div><h3>발표 결과 주소 안내</h3><p>수시 발표가 시작될 즈음 <span class="path">🔗 학생용·교사용 주소 보기</span> 아래쪽 <b>수시 발표 결과</b>의 학생용 주소를 <a href="#students">학생 안내문</a>과 함께 보냅니다.</p></div></li>
+    </ol>
+    <p class="note" style="margin-top:12px">각 단계의 화면 설명은 사본 안 매뉴얼(배포 뒤 <code>…/exec?page=manual</code>) 1~5장에 있습니다. 막히면 <span class="path">✅ 지금 상태 점검하기</span>가 남은 단계를 알려 줍니다.</p>
+  </section>
+
+  <section id="check">
+    <h2>끝난 뒤 확인 (B·C·D)</h2>
+    <ol class="steps">
+      <li><div><h3>상태 점검</h3><p>스프레드시트 새로고침(F5) → <span class="path">수시 상담카드 → ✅ 지금 상태 점검하기</span>. 5번이 <b>“네 화면 모두 정상입니다.”</b>, 7번에 <b>수시 발표 결과</b> 줄이 보이면 됩니다.</p></div></li>
+      <li><div><h3>판 확인</h3><p>교사 대시보드를 <span class="path">Ctrl+Shift+R</span>로 새로고침 → 제목 아래가 <b>서버 v1.9.3</b>인지 봅니다. 결과 화면 맨 아래에는 <b>화면 발표결과 1.0.2</b>이 찍힙니다.</p></div></li>
+      <li><div><h3>결과 주소</h3><p><span class="path">🔗 학생용·교사용 주소 보기</span> 아래쪽 <b>수시 발표 결과</b>에 주소 두 줄이 나옵니다. 학생용은 <code>…/exec?page=result&amp;who=student</code>, 교사용은 <code>…/exec?page=result&amp;who=teacher</code>로 끝납니다. 교사용을 열어 교사 PIN으로 들어가 학생 목록이 보이면 끝입니다.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="students">
+    <h2>학생 안내문</h2>
+    <div class="paste-head"><p>단톡방·클래스룸에 붙여넣을 글입니다. 주소 자리에 학생용 결과 주소를 넣으세요.</p>
+      <span><button class="copy" type="button" data-copy="studentText">안내문 복사</button><span class="copied" aria-live="polite"></span></span></div>
+    <textarea id="studentText" readonly aria-label="학생 안내문">[수시 발표 결과 입력 안내]
+수시 발표가 나면 아래 주소에서 결과를 입력해 주세요.
+(주소: 담임 선생님이 붙여넣기)
+
+· 상담카드와 같은 반·번호·이름·접속코드로 들어갑니다.
+· 실제로 원서를 낸 곳만 '지원함', 내지 않은 곳은 '안 함'을 고릅니다. 막판에 바꿔 낸 곳은 맨 아래 '＋ 추가'로 넣습니다.
+· 결과가 바뀔 때마다(1차 합격 → 최종, 예비 → 추가 합격) 고치고 '저장하기'를 누르세요.
+· 예비 번호와 다음 발표일은 알면 적어 주세요.
+· 담임 선생님이 확인한 결과는 잠깁니다. 틀렸다면 담임 선생님께 말해 주세요.</textarea>
+  </section>
+
+  <section>
+    <h2>이것만은 하지 마세요</h2>
+    <ul class="dont">
+      <li><b>‘새 배포’</b> — 새 주소가 생겨 학생에게 준 주소가 안 맞게 됩니다. 늘 <span class="path">배포 관리 → 연필 → 새 버전</span>.</li>
+      <li><b>.gs 파일 새로 추가</b> — 코드가 두 벌이 되어 ‘already been declared’ 오류가 납니다. 원래 있던 코드.gs의 내용만 바꿉니다.</li>
+      <li><b>메뉴 ‘학생 작성 자료 전체 초기화’</b> — 되돌릴 수 없습니다. 업데이트와 상관없는 메뉴입니다.</li>
+      <li><b>시트 탭 지우기·이름 바꾸기, 시트 1행 머리글 고치기</b> — 앱이 시트 이름과 머리글 이름으로 칸을 찾습니다.</li>
+      <li><b>복사해 올 곳(사본)에 명단을 넣거나 그 주소를 학생에게 주기</b> — 그 사본은 빈 시트입니다.</li>
+    </ul>
+  </section>
+
+  <section id="rollback">
+    <h2>되돌리기</h2>
+    <p>업데이트 뒤 문제가 생기면 0번 백업 사본의 <span class="path">확장 프로그램 → Apps Script</span>에서 예전 <code>코드.gs</code>(바꿨다면 Teacher·Manual도) 내용을 복사해 쓰던 쪽에 다시 붙여넣고, <span class="path">배포 관리 → 새 버전</span>으로 배포합니다. 상담카드는 예전처럼 돌아가고, 학생 자료와 그사이 입력된 발표 결과 시트는 그대로 남습니다. 다시 신버전으로 오면 결과를 이어서 씁니다.</p>
+    <p class="note">백업 사본의 <b>시트</b>를 쓰던 시트로 옮겨 붙이지는 마세요. 업데이트 뒤에 학생이 쓴 내용이 사라집니다. 되돌리는 것은 코드 파일뿐입니다.</p>
+  </section>
+
+  <section id="faq">
+    <h2>자주 묻는 질문</h2>
+    <dl class="faq">
+      <div class="faq-group">자료·업데이트</div>
+      <div><dt>업데이트하면 학생이 쓴 상담카드가 지워지지 않나요?</dt><dd>지워지지 않습니다. 업데이트는 Apps Script의 코드·화면 파일만 바꾸고, 학생 자료는 스프레드시트에 따로 있습니다. 9월까지 나온 판 세 가지로 자료를 쌓은 시트에 덮어쓰고 시트 전체를 칸 단위로 비교했는데, 새로 생긴 결과 시트 두 개와 설정 시트 한 줄 말고는 바뀐 칸이 없었습니다(<a href="#tested">확인한 방법</a>). 그래도 0번 백업은 꼭 해 두세요.</dd></div>
+      <div><dt>학생에게 주소나 접속코드를 다시 알려 줘야 하나요?</dt><dd>상담카드 주소와 접속코드는 그대로입니다. 결과 화면 주소 하나만 새로 알려 주면 됩니다. 학생은 상담카드와 같은 반·번호·이름·접속코드로 들어갑니다. 같은 기기에서 상담카드에 로그인해 두었다면 바로 열립니다.</dd></div>
+      <div><dt>권한 승인 창이 또 뜨나요?</dt><dd>뜨지 않습니다. 새 코드는 예전 판과 같은 권한만 씁니다. 혹시 뜨면 처음 설치할 때처럼 <span class="path">고급 → 이동 → 허용</span>을 누르면 됩니다.</dd></div>
+      <div><dt>setupSystem을 다시 해야 하나요?</dt><dd>B·D는 하지 않아도 됩니다. 결과 시트는 결과 화면을 처음 열 때 저절로 생깁니다. C는 한 번 합니다. 실수로 눌러도 학생 자료와 결과는 지워지지 않고, 선생님이 꺼 둔 ‘학생 입력’ 설정도 그대로입니다.</dd></div>
+      <div><dt>Teacher·Manual·Index도 꼭 바꿔야 하나요?</dt><dd>B는 코드와 Result만 있으면 결과 기능이 작동합니다. Teacher를 바꾸면 교사 대시보드에 🏁 단추가 생기고, Manual을 바꾸면 매뉴얼에 결과 안내가 들어가므로 같이 바꾸기를 권합니다. Index는 B에서는 그대로 둡니다. C(V9.7 이하)는 Index·Teacher·Manual을 모두 바꿉니다.</dd></div>
+      <div><dt>시트에 제가 따로 만든 탭과 칸이 있는데 괜찮나요?</dt><dd>괜찮습니다. 새 코드는 원래 앱이 쓰던 칸과 새로 만드는 결과 시트 두 개(<code>발표결과</code>·<code>발표결과_이력</code>)에만 씁니다. 선생님이 덧붙인 시트 탭과 명단 오른쪽에 덧붙인 칸은 그대로입니다(시험으로 확인). 다만 선생님이 만든 탭 이름이 마침 <code>발표결과</code>라면, 결과 화면이 그 탭에 손대지 않고 멈춰 이름을 바꾸라고 안내합니다(<a href="#trouble">이럴 때는</a>). 학년말에 ‘학생 작성 자료 전체 초기화’를 눌러도 그 탭은 비우지 않습니다.</dd></div>
+      <div><dt>새 사본을 만들어 거기로 옮겨 가면 안 되나요?</dt><dd>권하지 않습니다. 새 사본은 웹앱 주소가 새로 생기고 학생 자료가 비어 있어, 자료를 옮기고 학생 전원에게 주소를 다시 안내해야 합니다. 쓰던 시트에서 파일 내용만 바꾸는 쪽이 빠르고 안전합니다.</dd></div>
+      <div><dt>업데이트하다가 학생이 접속해 있으면 어떻게 되나요?</dt><dd>학생 화면은 배포 관리에서 새 버전을 누르는 순간 바뀝니다. 그 전까지는 예전 판이 그대로 돌아갑니다. 작성 중이던 학생은 새로고침하면 됩니다. 수업 시간을 피해 하면 더 좋습니다.</dd></div>
+
+      <div class="faq-group">결과 입력</div>
+      <div><dt>학생이 거짓으로 입력하면요?</dt><dd>학생이 입력한 줄은 담임 화면에 <b>확인 전</b>(점선)으로 보입니다. 담임이 확인하면 잠겨 학생이 더 고칠 수 없습니다. 누가 언제 무엇을 바꿨는지는 <code>발표결과_이력</code> 시트에 남습니다. 담임 화면의 <b>확인분만 집계</b>를 켜면 확인한 결과만 숫자에 넣습니다.</dd></div>
+      <div><dt>학생 입력을 막고 담임만 입력할 수 있나요?</dt><dd>교사용 결과 화면 위쪽 <b>학생 입력</b> 단추로 끕니다. 꺼 두면 학생은 자기 결과를 보기만 하고, 담임은 그대로 입력합니다. 언제든 다시 켤 수 있습니다.</dd></div>
+      <div><dt>결과를 안 넣는 학생은요?</dt><dd>교사용 결과 화면 학생별 탭에서 그 학생의 <b>입력·수정</b>을 눌러 담임이 대신 넣습니다. 상담카드를 쓰지 않은 학생도 됩니다. 담임이 넣은 줄은 바로 확인 상태가 됩니다. 위쪽 거르기에서 <b>결과 미입력 학생</b>만 골라 볼 수 있습니다.</dd></div>
+      <div><dt>상담카드에 적은 곳과 실제로 낸 곳이 달라요.</dt><dd>상담카드의 대학은 출발점일 뿐입니다. 내지 않은 곳은 <b>안 함</b>, 막판에 바꿔 낸 곳은 맨 아래 <b>＋ 4년제 추가 / ＋ 전문대 추가</b>로 넣습니다. 결과를 넣은 뒤 학생이 상담카드를 고치면, 아직 손대지 않은 대학은 카드를 따라 바뀌고 이미 결과를 적은 줄은 그대로 남습니다.</dd></div>
+      <div><dt>1차 합격 후 면접에 안 간 경우는요?</dt><dd><b>2차 미응시</b>를 고릅니다. 1단계에서 떨어지면 <b>1차 불합격</b>, 면접을 보고 떨어지면 <b>최종 불합격</b>입니다. 단계 없이 한 번에 뽑는 전형은 바로 최종 합격·최종 불합격을 고릅니다. 예비였다가 끝내 추합되지 않으면 최종 불합격으로 바꿉니다.</dd></div>
+      <div><dt>추합은 어떻게 관리하나요?</dt><dd>예비 번호와 다음 발표일을 적어 두면 교사용 화면 <b>추합·발표 일정</b> 탭에 날짜순으로 모입니다. 추합이 되면 <b>추가 합격</b>으로 바꾸고 합격 차수(1차 추합, 전화 추합 등)를 고릅니다. 예비 번호와 다음 발표일은 학생도 적을 수 있습니다.</dd></div>
+      <div><dt>여러 학생이 한꺼번에 저장하면 꼬이지 않나요?</dt><dd>저장은 한 명씩 차례로 처리됩니다. 학생 300명 시트에서 20명이 동시에 저장하는 시험을 세 번 했고, 60명 모두 저장되었으며 사라지거나 겹친 줄은 없었습니다. 붐비면 저장 단추에 ‘저장 차례를 기다리는 중…’이 뜨고 저절로 다시 보냅니다. 가장 늦은 학생은 1분 남짓 걸렸습니다. 담임과 학생이 같은 학생을 동시에 고쳐도 서로 덮어쓰지 않고, 나중에 저장한 쪽 화면이 최신 내용을 불러와 합쳐 줍니다.</dd></div>
+      <div><dt>정시 결과도 넣을 수 있나요?</dt><dd>이 화면은 수시용입니다(4년제 수시, 전문대 수시 1·2차).</dd></div>
+      <div><dt>엑셀로 받을 수 있나요?</dt><dd>교사용 결과 화면의 <b>결과 CSV</b>(학생별 한 줄씩)와 <b>대학별 CSV</b>로 내려받아 엑셀에서 엽니다. 지금 걸러 놓은 반·학생 기준입니다. 합격 결과는 개인정보이므로 학교 업무용 저장소에만 두세요.</dd></div>
+      <div><dt>담임 여러 명이 같이 쓰나요?</dt><dd>학교 하나에 사본 하나를 두고, 모든 담임이 같은 교사 PIN으로 들어갑니다. 반 거르기로 자기 반만 볼 수 있습니다. 결과 화면 위쪽 <b>교사 이름</b> 칸에 이름을 적어 두면 누가 고쳤는지 이력에 남습니다.</dd></div>
+    </dl>
+  </section>
+
+  <section id="trouble">
+    <h2>이럴 때는</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>증상</th><th>원인과 조치</th></tr></thead>
+        <tbody>
+          <tr><td>결과 주소를 열었는데 학생 상담카드가 뜬다</td><td>새 코드가 배포되지 않았습니다. 코드 내용을 바꿨는지 확인하고 <span class="path">배포 관리 → 연필 → 새 버전</span>을 다시 하세요.</td></tr>
+          <tr><td>“화면 파일을 찾지 못했습니다”</td><td>HTML 파일 이름이 정확히 <code>Result</code>가 아닙니다. 파일 오른쪽 <span class="path">⋮ → 이름 바꾸기</span>로 고친 뒤 새 버전으로 배포하세요.</td></tr>
+          <tr><td>‘already been declared’(이미 선언됨) 오류</td><td>.gs 파일이 두 개가 되었습니다. 새로 만든 .gs 파일을 지우고, 원래 코드.gs의 내용을 바꾸세요.</td></tr>
+          <tr><td>화면이 예전 그대로다</td><td><span class="path">Ctrl+Shift+R</span>로 새로고침하세요. 그래도 같으면 새 버전 배포를 빠뜨린 것입니다.</td></tr>
+          <tr><td>화면 맨 위에 붉은 띠 “○○ 화면 파일이 예전 버전입니다”</td><td>띠에 적힌 파일만 원본 사본에서 다시 붙여넣고 새 버전으로 배포하세요(주로 C의 학교).</td></tr>
+          <tr><td>상태 점검 5번에 “Result”가 빠졌다고 나온다</td><td>Result 파일을 아직 만들지 않았습니다. B의 4번을 하세요.</td></tr>
+          <tr><td>교사 대시보드에 🏁 발표 결과 단추가 없다</td><td>Teacher를 바꾸지 않았거나, 배포 주소가 등록되지 않았습니다. <span class="path">🔗 배포 주소 등록</span>에 <code>/exec</code> 주소를 넣으면 생깁니다. 단추 없이 교사용 결과 주소로 바로 들어가도 됩니다.</td></tr>
+          <tr><td>대학별 집계가 대학이 아니라 ‘수시’·‘수시1차’로 묶인다</td><td>예전 판 시트 머리글입니다. 교사 대시보드를 한 번 열면 저절로 고쳐지고, 바로 고치려면 <span class="path">고급 → 지원행 시트 다시 만들기</span>.</td></tr>
+          <tr><td>학생이 “담임 선생님만 입력합니다”라는 안내를 본다</td><td>학생 입력이 꺼져 있습니다. 교사용 결과 화면 위쪽 <b>학생 입력</b>을 켜세요.</td></tr>
+          <tr><td>저장했더니 “먼저 바꾼 내용을 불러와 … 합쳤습니다”</td><td>정상입니다. 그사이 담임(또는 다른 창)이 저장해서, 최신 내용 위에 입력하던 내용을 다시 얹어 둔 것입니다. 화면을 확인하고 저장을 한 번 더 누르세요.</td></tr>
+          <tr><td>“현재 파일을 열 수 없습니다”</td><td>브라우저에 Google 계정이 여러 개 로그인되어 있을 때 나는 오류입니다. 시크릿 창에서 열어 보세요. 시크릿 창에서 열리면 설치·배포는 정상입니다(매뉴얼 9장).</td></tr>
+          <tr><td>결과 화면에 “이미 ‘발표결과’ 시트가 있는데, 발표 결과 화면이 만든 시트가 아닙니다”</td><td>선생님이 예전부터 직접 만들어 쓰던 같은 이름의 시트가 있는 경우입니다. 결과 화면은 그 시트에 아무것도 쓰지 않고 멈춘 상태입니다. 시트 탭을 오른쪽 클릭 → <span class="path">이름 바꾸기</span>로 <code>발표결과_학교</code>처럼 바꾸고 결과 화면을 다시 여세요. 내용은 그대로 남고, 결과 화면은 새 ‘발표결과’ 시트를 만들어 씁니다.</td></tr>
+          <tr><td>원본 주소를 열었는데 사본 만들기가 안 된다</td><td>학교 Google Workspace 계정이 바깥 파일을 막아 둔 경우가 있습니다. 개인 Gmail 계정으로 열어 보세요.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:10px">그 밖의 문제는 <span class="path">✅ 지금 상태 점검하기</span> 화면과 교사 대시보드 맨 위(제목과 그 아래 줄)를 캡처해서 물어보시면 바로 원인을 찾을 수 있습니다.</p>
+  </section>
+
+  <section id="tested">
+    <h2>이렇게 확인했습니다</h2>
+    <p>쓰던 학교가 덮어썼을 때 자료가 상하지 않는지를 가장 먼저 봤습니다. 모두 가상 학생으로 시험했습니다.</p>
+    <div class="checked">
+      <div><b>7가지 학교 · 493항목</b>9월까지 나온 판 세 가지(8.24 · 9.4 · 9.9) × 정상 시트·옛 규격이 남은 시트, 그리고 선생님이 직접 만든 ‘발표결과’ 탭이 있는 학교. 덮어쓴 뒤 시트 전체를 칸 단위로 비교하고, 결과 기능 전체·setupSystem·전체 초기화·되돌리기까지 확인</div>
+      <div><b>실제 Google에서 재현</b>9월판(서버 1.8.0)으로 학생 300명 시트를 운영한 뒤 코드만 바꾸고, 바꾸기 전과 후의 시트 전체를 비교</div>
+      <div><b>20명 동시 저장 × 3번</b>학생 300명 시트에서 60명 모두 저장 · 사라진 줄 0 · 겹친 줄 0</div>
+      <div><b>실제 구글 화면에서 눌러 보기</b>학생 결과 입력·저장, 담임 확인·대신 입력·비고, 확인한 줄 잠김, 🏁 단추로 결과판 열기, 로그아웃 — 저장된 값을 시트에서 다시 읽어 대조. 그 밖에 학생 휴대폰 화면, 저장 충돌 때 합치기, 붐빌 때 자동 재시도</div>
+    </div>
+  </section>
+
+  <footer>
+    2027 수시지원상담카드 V9.8 전문대 포함본 · 발표결과판 (서버 v1.9.3 · 결과 화면 1.0.2 · 2026-11-13)<br>
+    전형일정 원자료 한민고 이재훈 선생님 · 달력 형식 충남 백암고 권현석 선생님 · 그 밖의 제작·기여 표기는 앱 안 설정 시트와 화면 아래에 있는 그대로 유지해 주세요.
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var el = document.getElementById(b.getAttribute('data-copy'));
+    var msg = b.parentElement.querySelector('.copied') || b.nextElementSibling;
+    var done = function (t) { if (msg) { msg.textContent = t; setTimeout(function () { msg.textContent = ''; }, 2500); } };
+    var fallback = function () { try { el.focus(); el.select(); done('선택됨 — Ctrl+C'); } catch (e) {} };
+    try {
+      navigator.clipboard.writeText(el.value).then(function () { done('복사됨'); }, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
