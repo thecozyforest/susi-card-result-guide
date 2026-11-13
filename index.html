@@ -217,7 +217,7 @@ footer{font-size:12.5px;color:var(--muted);text-align:center;line-height:1.7}
       </div></li>
       <li><div>
         <h3>확인하고 학생에게 결과 주소 안내</h3>
-        <p><a href="#check">끝난 뒤 확인</a>의 세 가지를 보고, <a href="#students">학생 안내문</a>과 함께 학생용 결과 주소를 보냅니다.</p>
+        <p><a href="#check">끝난 뒤 확인</a>의 세 가지를 보고, <a href="#students">학생 안내문</a>(학생용 사용 안내 페이지 링크 포함)과 함께 학생용 결과 주소를 보냅니다.</p>
       </div></li>
     </ol>
   </section>
@@ -285,17 +285,25 @@ footer{font-size:12.5px;color:var(--muted);text-align:center;line-height:1.7}
 
   <section id="students">
     <h2>학생 안내문</h2>
-    <div class="paste-head"><p>단톡방·클래스룸에 붙여넣을 글입니다. 주소 자리에 학생용 결과 주소를 넣으세요.</p>
+    <p>학생에게는 <b>우리 학교 결과 입력 주소</b>와 <b>학생용 사용 안내 페이지</b> 두 가지를 보냅니다. 학생용 안내 페이지는 실제 결과 화면 그림(가상 학생)으로 들어가기 · 원서 낸 곳 고르기 · 결과 고르기 · 저장 · 🔒 잠긴 줄 · 자주 묻는 것을 설명합니다. 모든 학교가 같은 페이지를 써도 됩니다.</p>
+    <div class="url">
+      <input id="studentGuideUrl" readonly value="https://thecozyforest.github.io/susi-card-result-guide/student.html" aria-label="학생용 안내 페이지 주소">
+      <button class="copy" type="button" data-copy="studentGuideUrl">주소 복사</button><span class="copied" aria-live="polite"></span>
+      <a href="https://thecozyforest.github.io/susi-card-result-guide/student.html" target="_blank" rel="noopener" style="font-size:13.5px;font-weight:700">열어 보기</a>
+    </div>
+    <div class="paste-head" style="margin-top:16px"><p>단톡방·클래스룸에 붙여넣을 글입니다. <b>입력 주소</b> 자리에 학생용 결과 주소(메뉴 <span class="path">🔗 학생용·교사용 주소 보기</span> 아래쪽 ‘수시 발표 결과’의 학생용, <code>…/exec?page=result&amp;who=student</code>)를 넣으세요.</p>
       <span><button class="copy" type="button" data-copy="studentText">안내문 복사</button><span class="copied" aria-live="polite"></span></span></div>
     <textarea id="studentText" readonly aria-label="학생 안내문">[수시 발표 결과 입력 안내]
 수시 발표가 나면 아래 주소에서 결과를 입력해 주세요.
-(주소: 담임 선생님이 붙여넣기)
+■ 입력 주소: (담임 선생님이 붙여넣기)
+■ 사용 방법(그림 설명): https://thecozyforest.github.io/susi-card-result-guide/student.html
 
 · 상담카드와 같은 반·번호·이름·접속코드로 들어갑니다.
-· 실제로 원서를 낸 곳만 '지원함', 내지 않은 곳은 '안 함'을 고릅니다. 막판에 바꿔 낸 곳은 맨 아래 '＋ 추가'로 넣습니다.
-· 결과가 바뀔 때마다(1차 합격 → 최종, 예비 → 추가 합격) 고치고 '저장하기'를 누르세요.
+· 실제로 원서를 낸 곳만 '지원함', 내지 않은 곳은 '안 함'을 고릅니다. 막판에 바꿔 낸 곳은 맨 아래 '＋ 4년제 추가'·'＋ 전문대 추가'로 넣습니다.
+· 결과가 바뀔 때마다(1차 합격 → 최종 합격, 예비 → 추가 합격) 고치고 '저장하기'를 누르세요.
 · 예비 번호와 다음 발표일은 알면 적어 주세요.
-· 담임 선생님이 확인한 결과는 잠깁니다. 틀렸다면 담임 선생님께 말해 주세요.</textarea>
+· 담임 선생님이 확인한 결과는 🔒 잠깁니다. 틀렸다면 담임 선생님께 말해 주세요.
+· 학교·도서관 컴퓨터로 입력했다면 다 쓰고 오른쪽 위 '로그아웃'을 누르세요.</textarea>
   </section>
 
   <section>

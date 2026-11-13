@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="수시 상담카드 발표 결과 화면에서 원서 낸 대학을 고르고 1차·최종·예비·추합 결과를 입력·저장하는 방법(학생용)">
+<title>수시 결과 입력 안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* 학생용 — 휴대폰 한 손으로 위에서 아래로 읽는 한 기둥(최대 640px). 실제 결과 화면 그림(가상 학생)을 단계마다 둔다. 색은 상담카드 앱의 크림슨. */
+:root{
+  --bg:#f6f4f5; --paper:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e6dfe1;
+  --brand:#9b1b30; --brand-soft:#fbeef1; --brand-line:#eec7ce;
+  --stop:#8a2a1a; --stop-bg:#fff1ec; --stop-line:#f3cdbf;
+  --ok:#11694f; --ok-bg:#e9f6f0; --ok-line:#c3e6d6;
+  --info:#23497a; --info-bg:#eef3fb; --info-line:#cfdcf0;
+  --prog:#8a5a00; --prog-bg:#fff6e0;
+  --shot-line:#d9d2d5;
+  --f-body:"Noto Sans KR","Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17141a; --paper:#201c22; --ink:#ece8ea; --muted:#a59ea4; --line:#3a3239;
+  --brand:#e0677b; --brand-soft:#3a1d24; --brand-line:#5c2d38;
+  --stop:#f2a58e; --stop-bg:#3a221b; --stop-line:#5c3528;
+  --ok:#7fd3b0; --ok-bg:#16302a; --ok-line:#28503f;
+  --info:#a9c6ee; --info-bg:#1b2533; --info-line:#2e4361;
+  --prog:#f0c46a; --prog-bg:#33290f; --shot-line:#4a4048; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17141a; --paper:#201c22; --ink:#ece8ea; --muted:#a59ea4; --line:#3a3239;
+  --brand:#e0677b; --brand-soft:#3a1d24; --brand-line:#5c2d38;
+  --stop:#f2a58e; --stop-bg:#3a221b; --stop-line:#5c3528;
+  --ok:#7fd3b0; --ok-bg:#16302a; --ok-line:#28503f;
+  --info:#a9c6ee; --info-bg:#1b2533; --info-line:#2e4361;
+  --prog:#f0c46a; --prog-bg:#33290f; --shot-line:#4a4048; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px;
+  word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-size:clamp(25px,6.4vw,32px);line-height:1.3;margin:4px 0 0;font-weight:900;letter-spacing:-.5px;text-wrap:balance}
+h2{font-size:20px;line-height:1.4;margin:0 0 8px;font-weight:900;display:flex;gap:10px;align-items:center;text-wrap:balance}
+h2 .n{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px}
+h3{font-size:16.5px;margin:18px 0 4px;font-weight:700}
+p{margin:0} p + p{margin-top:8px}
+a{color:var(--brand)}
+.kicker{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.03em}
+.lead{color:var(--muted);margin-top:8px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 18px 22px;scroll-margin-top:12px}
+ul{margin:6px 0 0;padding-left:20px} li{margin:4px 0}
+b.ui,span.ui{display:inline-block;font-weight:700;background:var(--brand-soft);color:var(--brand);border:1px solid var(--brand-line);border-radius:7px;padding:0 7px;line-height:1.6;margin:1px 0}
+.box{border-radius:12px;padding:13px 15px;border:1px solid;margin-top:12px}
+.box.need{background:var(--info-bg);border-color:var(--info-line)} .box.need strong{color:var(--info)}
+.box.stop{background:var(--stop-bg);border-color:var(--stop-line)} .box.stop strong{color:var(--stop)}
+.box.ok{background:var(--ok-bg);border-color:var(--ok-line)} .box.ok strong{color:var(--ok)}
+.box ol{margin:4px 0 0;padding-left:20px}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px}
+nav.toc a{font-size:13.5px;font-weight:700;text-decoration:none;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+nav.toc a:hover,nav.toc a:focus-visible{border-color:var(--brand);color:var(--brand);outline:none}
+figure{margin:14px 0 0;text-align:center}
+figure img{display:block;margin:0 auto;width:100%;height:auto;border:1px solid var(--shot-line);border-radius:12px;background:#fff}
+figure.card img{max-width:343px}
+figure.bar img{max-width:375px}
+figcaption{font-size:12.5px;color:var(--muted);margin-top:6px}
+.pair{display:grid;grid-template-columns:1fr;gap:4px}
+@media (min-width:620px){.pair{grid-template-columns:1fr 1fr;align-items:start}}
+.status{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.status div{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;border:1px solid var(--line);border-left:5px solid var(--muted);border-radius:10px;padding:9px 12px}
+.status b{font-size:15px}
+.status span{font-size:14.5px;color:var(--muted)}
+.status .g-wait{border-left-color:var(--muted)}
+.status .g-prog{border-left-color:var(--prog);background:var(--prog-bg)}
+.status .g-pass{border-left-color:var(--ok);background:var(--ok-bg)}
+.status .g-fail{border-left-color:var(--stop);background:var(--stop-bg)}
+.grp{font-size:12.5px;font-weight:700;color:var(--muted);margin-top:6px;letter-spacing:.03em}
+.flow{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.flow div{font-size:15px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px}
+.flow i{font-style:normal;color:var(--brand);font-weight:900;padding:0 4px}
+dl.faq{margin:4px 0 0;display:flex;flex-direction:column;gap:14px}
+dl.faq dt{font-weight:700;display:flex;gap:8px}
+dl.faq dt::before{content:"Q";color:var(--brand);font-weight:900;flex:0 0 auto}
+dl.faq dd{margin:4px 0 0 20px}
+.note{font-size:14px;color:var(--muted);margin-top:8px}
+footer{font-size:12.5px;color:var(--muted);text-align:center;line-height:1.7}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">2027 수시 상담카드 · 학생용</div>
+    <h1>수시 발표 결과 입력하는 법</h1>
+    <p class="lead">원서를 낸 대학의 발표 결과를 적는 화면이에요. 상담카드에 적은 대학이 미리 나와 있어서, 실제로 낸 곳을 고르고 결과만 바꾸면 돼요. 발표가 날 때마다 들어와서 고치고 저장하세요.</p>
+    <div class="box need"><strong>준비할 것 두 가지</strong>
+      <ol>
+        <li>담임 선생님이 보내 준 <b>결과 입력 주소</b></li>
+        <li>상담카드에 들어갈 때 쓰던 <b>반 · 번호 · 이름 · 접속코드</b></li>
+      </ol>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="차례">
+    <a href="#s1">① 들어가기</a><a href="#s2">② 원서 낸 곳 고르기</a><a href="#s3">③ 결과 고르기</a><a href="#s4">④ 저장하기</a><a href="#s5">⑤ 발표 날 때마다</a><a href="#s6">⑥ 🔒 잠긴 줄</a><a href="#faq">이럴 때는</a>
+  </nav>
+
+  <section id="s1">
+    <h2><span class="n">1</span>들어가기</h2>
+    <p>담임 선생님이 보내 준 주소를 열면 <b>학생 로그인</b>이 나와요. 상담카드에 들어갈 때와 <b>똑같은</b> 반·번호·이름·접속코드를 넣고 <span class="ui">들어가기</span>를 누르세요.</p>
+    <p>같은 휴대폰으로 최근에 상담카드에 들어갔다면 로그인 없이 바로 열릴 수도 있어요.</p>
+    <figure class="card"><img src="img/s01-login.jpg" width="335" height="487" alt="학생 로그인 화면: 반, 번호, 이름, 접속코드 칸과 들어가기 단추"><figcaption>예시 화면 — 가상 학생</figcaption></figure>
+    <p class="note">접속코드를 모르면 담임 선생님께 물어보세요. 접속코드는 친구에게 알려 주지 마세요. 다른 사람이 내 결과를 바꿀 수 있어요.</p>
+  </section>
+
+  <section id="s2">
+    <h2><span class="n">2</span>원서 낸 곳 고르기</h2>
+    <p>상담카드에 적은 대학이 <b>4년제 대학</b>·<b>전문대학</b>으로 나뉘어 미리 나와 있어요. 대학마다 <b>실제로 지원했나요?</b>에서 고르세요.</p>
+    <ul>
+      <li>원서를 냈으면 <span class="ui">지원함</span> → 결과 칸이 열려요.</li>
+      <li>상담카드에는 적었지만 내지 않았으면 <span class="ui">안 함</span></li>
+    </ul>
+    <div class="pair">
+      <figure class="card"><img src="img/s03-unset.jpg" width="343" height="185" alt="아직 고르지 않은 줄: 지원함, 안 함 단추와 '아직 고르지 않았어요' 안내" loading="lazy"><figcaption>아직 고르지 않은 줄</figcaption></figure>
+      <figure class="card"><img src="img/s06-notapplied.jpg" width="343" height="165" alt="안 함을 고른 줄" loading="lazy"><figcaption>‘안 함’을 고른 줄</figcaption></figure>
+    </div>
+
+    <h3>상담카드에 없는 곳에 냈다면 (막판에 바꾼 곳)</h3>
+    <p>맨 아래 <span class="ui">＋ 4년제 추가 (상담카드에 없는 곳)</span> 또는 <span class="ui">＋ 전문대 추가</span>를 누르고 <b>대학명 · 학과(모집단위) · 전형명</b>을 적어요. 전문대는 <b>모집시기</b>(수시1차·수시2차)도 고르세요. 잘못 넣은 줄은 <span class="ui">이 줄 지우기</span>로 지워요.</p>
+    <div class="pair">
+      <figure class="card"><img src="img/s07-addbuttons.jpg" width="343" height="80" alt="맨 아래의 4년제 추가, 전문대 추가 단추" loading="lazy"><figcaption>맨 아래 추가 단추</figcaption></figure>
+      <figure class="card"><img src="img/s08-added.jpg" width="343" height="523" alt="직접 추가한 줄: 대학명, 학과, 전형명 칸과 이 줄 지우기 단추" loading="lazy"><figcaption>직접 추가한 줄</figcaption></figure>
+    </div>
+
+    <h3>다 골랐는지 확인</h3>
+    <p>화면 위 요약에 <b>지원 여부 안 고름</b>이 보이면 아직 안 고른 대학이 남은 거예요. 다 고르면 이 칸이 사라져요.</p>
+    <figure class="card"><img src="img/s02-summary.jpg" width="343" height="60" alt="요약: 지원 곳 수, 합격, 진행 중, 발표 전, 불합격, 지원 여부 안 고름" loading="lazy"></figure>
+    <p class="note">4년제 <b>‘지원함’이 7곳 이상</b>이면 경고가 떠요. 4년제 수시는 6회까지 지원할 수 있어서(과학기술원·사관학교 등은 제외), 실제로 원서를 낸 곳만 ‘지원함’으로 남겨 주세요.</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="n">3</span>결과 고르기</h2>
+    <p><b>결과</b> 칸에서 지금 상태를 고르세요. 처음에는 ‘발표 전’이에요.</p>
+    <div class="status" role="list">
+      <div class="g-wait" role="listitem"><b>발표 전</b><span>아직 발표가 나지 않았어요.</span></div>
+      <p class="grp">진행 중</p>
+      <div class="g-prog" role="listitem"><b>1차 합격 (2차·면접 남음)</b><span>1단계를 통과했고 면접·2차가 남았어요.</span></div>
+      <div class="g-prog" role="listitem"><b>예비 (추합 대기)</b><span>예비 번호를 받았어요. 예비 번호와 다음 발표일을 알면 적어 주세요.</span></div>
+      <p class="grp">합격</p>
+      <div class="g-pass" role="listitem"><b>최종 합격</b><span>최종 합격했어요.</span></div>
+      <div class="g-pass" role="listitem"><b>추가 합격 (추합으로 합격)</b><span>예비였다가 추가 합격(충원)됐어요.</span></div>
+      <p class="grp">불합격</p>
+      <div class="g-fail" role="listitem"><b>1차 불합격</b><span>1단계에서 떨어졌어요.</span></div>
+      <div class="g-fail" role="listitem"><b>2차 미응시 (1차 합격 후 응시 안 함)</b><span>1차는 붙었지만 면접·2차에 가지 않았어요.</span></div>
+      <div class="g-fail" role="listitem"><b>최종 불합격 (일괄 불합격·2차 후 불합격)</b><span>단계 없이 한 번에 떨어졌거나, 면접·2차를 보고 떨어졌어요. 예비였다가 끝내 추합되지 않았을 때도 이걸로 바꿔요.</span></div>
+    </div>
+
+    <h3>예비일 때 — 예비 번호 · 다음 발표일</h3>
+    <p>둘 다 <b>선택</b>이에요. 알면 적어 두세요. 담임 선생님이 추합 일정을 날짜순으로 챙겨 봐요.</p>
+    <figure class="card"><img src="img/s04-waitlist.jpg" width="343" height="390" alt="예비를 고른 줄: 예비 번호 12, 다음 발표일 칸" loading="lazy"><figcaption>예비 12번, 다음 발표일을 적은 예</figcaption></figure>
+
+    <h3>합격일 때 — 합격 차수</h3>
+    <p><b>합격 차수</b>도 <b>선택</b>이에요. 최초 합격, 1차 추합 … 10차 이후 추합, 전화 추합 중에서 골라요. 모르면 비워 둬도 돼요.</p>
+    <figure class="card"><img src="img/s05-pass.jpg" width="343" height="388" alt="최종 합격을 고른 줄: 합격 차수 최초 합격" loading="lazy"><figcaption>최종 합격 · 최초 합격의 예</figcaption></figure>
+    <p class="note"><b>비고</b>는 선택이고, 담임 선생님도 봐요.</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="n">4</span>저장하기</h2>
+    <p>고친 것이 있으면 화면 맨 아래에 <b>저장하지 않은 변경이 있어요</b>가 떠요. <span class="ui">저장하기</span>를 누르세요.</p>
+    <figure class="bar"><img src="img/s09-unsaved.jpg" width="375" height="66" alt="화면 아래 막대: 저장하지 않은 변경이 있어요, 저장하기 단추" loading="lazy"></figure>
+    <p style="margin-top:12px"><b>저장된 상태입니다</b>로 바뀌면 끝이에요. 저장은 5~10초쯤 걸려요.</p>
+    <figure class="bar"><img src="img/s10-saved.jpg" width="375" height="66" alt="화면 아래 막대: 저장된 상태입니다" loading="lazy"></figure>
+    <div class="box stop"><strong>이것만 기억하세요</strong>
+      <ul>
+        <li>단추가 <b>저장 차례를 기다리는 중…</b>으로 바뀌면 친구들이 한꺼번에 저장하는 중이에요. 다시 누르지 말고 기다리면 저절로 저장돼요.</li>
+        <li><b>저장하기 전에 창을 닫으면</b> 고친 내용이 저장되지 않아요.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s5">
+    <h2><span class="n">5</span>발표가 날 때마다</h2>
+    <p>결과는 한 번에 끝나지 않아요. 바뀔 때마다 들어와서 고치고 <span class="ui">저장하기</span>를 누르세요.</p>
+    <div class="flow">
+      <div>1차 합격 <i>→</i> 최종 합격 (또는 최종 불합격 · 2차 미응시)</div>
+      <div>예비 12번 <i>→</i> 추가 합격 + 합격 차수 ‘2차 추합’</div>
+      <div>예비 <i>→</i> 끝내 추합되지 않으면 최종 불합격</div>
+    </div>
+    <div class="box ok"><strong>앞서 저장한 내용은 그대로예요</strong> · 다시 들어오면 저장해 둔 결과가 그대로 나와요. 상담카드에 적은 내용은 이 화면에서 바뀌지 않아요.</div>
+  </section>
+
+  <section id="s6">
+    <h2><span class="n">6</span>🔒 담임 선생님이 확인한 줄</h2>
+    <p>담임 선생님이 확인한 줄에는 <b>🔒 담임 확인</b>이 붙고 잠겨서 바꿀 수 없어요. 확인을 기다리는 줄에는 <b>확인 전</b>, 담임 선생님이 대신 넣어 준 줄에는 <b>담임 입력</b>이 붙어요.</p>
+    <figure class="card"><img src="img/s11-locked.jpg" width="343" height="483" alt="담임 확인으로 잠긴 줄: 추가 합격, 3차 추합, 회색으로 바꿀 수 없음" loading="lazy"><figcaption>잠긴 줄은 회색으로 보여요</figcaption></figure>
+    <p class="note">잠긴 줄이 틀렸거나, 확인 뒤에 결과가 바뀌었으면(예: 예비 → 추가 합격) 담임 선생님께 말씀드리세요.</p>
+  </section>
+
+  <section id="faq">
+    <h2>이럴 때는</h2>
+    <dl class="faq">
+      <div><dt>로그인이 안 돼요.</dt><dd>반·번호·이름을 상담카드에 들어갈 때와 똑같이 넣었는지 보세요(이름 띄어쓰기도). 그래도 안 되면 담임 선생님께 접속코드를 확인하세요.</dd></div>
+      <div><dt>“지금은 담임 선생님이 결과를 입력합니다”가 보여요.</dt><dd>학교에서 학생 입력을 꺼 둔 상태예요. 화면은 보기만 할 수 있어요. 결과가 나오면 담임 선생님께 알려 주세요.</dd></div>
+      <div><dt>“담임 선생님이 먼저 바꾼 내용을 불러와, 내가 입력한 내용과 합쳤습니다”가 떠요.</dt><dd>그사이 담임 선생님이 내 결과를 고쳤어요. 내가 입력하던 내용은 남아 있으니 화면을 확인하고 <span class="ui">저장하기</span>를 한 번 더 누르세요.</dd></div>
+      <div><dt>“로그인이 만료되었습니다. 다시 로그인하세요.”가 떠요.</dt><dd>다시 로그인하면 돼요. 이미 저장한 결과는 그대로예요. 저장하지 못한 내용만 다시 넣으세요.</dd></div>
+      <div><dt>학교·도서관 컴퓨터로 입력했어요.</dt><dd>다 쓰면 오른쪽 위 <span class="ui">로그아웃</span>을 누르세요. 다음 사람이 내 결과를 바꿀 수 없게요.</dd></div>
+      <div><dt>친구 결과도 보이나요?</dt><dd>아니요. 내 결과만 보여요. 담임·진학 선생님이 학생별로 모아 봐요.</dd></div>
+      <div><dt>정시 결과도 넣나요?</dt><dd>이 화면은 수시용이에요(4년제 수시, 전문대 수시 1·2차).</dd></div>
+    </dl>
+  </section>
+
+  <footer>2027 수시 상담카드 발표결과판 · 학생용 안내 (결과 화면 1.0.2 기준)<br>그림의 이름·학교·결과는 모두 가상의 예시예요.</footer>
+</div>
+</body>
+</html>
